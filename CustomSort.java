@@ -53,3 +53,50 @@ class CustomSort1 {
 }
 
 //Method 3 converting the array into arrayList
+class CustomSortLongWay {
+    public static int[] customSort(int[] arr) {
+        // Create a new array to store the sorted values
+        int[] arr2 = new int[arr.length];
+
+        // Convert the input array to an ArrayList for easy removal
+        List<Integer> arrList = new ArrayList<>();
+        for (int value : arr) {
+            arrList.add(value);
+        }
+
+        // Iterate through the input array to find and remove the minimum values
+        for (int i = 0; i < arr.length; i++) {
+            // Find the index of the minimum value in the ArrayList
+            int minIndex = findMinIndex(arrList);
+
+            arr2[i] = arrList.get(minIndex); // Store the minimum value in the sorted array
+            arrList.remove(minIndex); // Remove the minimum value from the ArrayList
+        }
+
+        // Return the sorted array
+        return arr2;
+    }
+
+    // Helper method to find the index of the minimum value in an ArrayList
+    public static int findMinIndex(List<Integer> arrList) {
+        int minIndex = 0;
+        for (int i = 1; i < arrList.size(); i++) {
+            if (arrList.get(i) < arrList.get(minIndex)) {
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 9, 1, 5, 6};
+
+        // Call the customSort method to sort the input array
+        int[] sortedArr = customSort(arr);
+
+        // Print the original and sorted arrays
+        System.out.println("Original Array: " + Arrays.toString(arr));
+        System.out.println("Sorted Array: " + Arrays.toString(sortedArr));
+    }
+}
+
