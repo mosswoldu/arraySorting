@@ -78,15 +78,15 @@ class CustomSortLongWay {
     }
 
     // Helper method to find the index of the minimum value in an ArrayList
-    public static int findMinIndex(List<Integer> arrList) {
-        int minIndex = 0;
-        for (int i = 1; i < arrList.size(); i++) {
-            if (arrList.get(i) < arrList.get(minIndex)) {
-                minIndex = i;
+ public static int findMinIndex(List<Integer> arrayList){
+        int minIndex=0;
+        for(int i=1;i<arrayList.size();i++){
+            if(arrayList.get(i)< arrayList.get(minIndex)){
+                minIndex=i;
             }
         }
         return minIndex;
-    }
+ }
 
     public static void main(String[] args) {
         int[] arr = {5, 2, 9, 1, 5, 6};
